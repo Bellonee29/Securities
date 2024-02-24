@@ -7,6 +7,8 @@ import com.wayTech.SecurityJWT.config.JwtService;
 import com.wayTech.SecurityJWT.user.Role;
 import com.wayTech.SecurityJWT.user.User;
 import com.wayTech.SecurityJWT.user.UserRepository;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -19,7 +21,8 @@ public class AuthenticationService {
     private final PasswordEncoder passwordEncoder;
     private final UserRepository userRepository;
     private final JwtService jwtService;
-    private AuthenticationManager authenticationManager;
+    private final  AuthenticationManager authenticationManager;
+
     public AuthenticationResponse register(RegisterRequest registerRequest) {
         var user = User.builder()
                 .fName(registerRequest.getFirstName())
